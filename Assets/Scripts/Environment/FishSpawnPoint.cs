@@ -17,6 +17,7 @@ namespace Fishing2D
                 var fish = fishObj.GetComponent<Fish>();
                 fish.SetFishSettings(_fishSettings);
                 fish.transform.position = transform.position;
+                fish.transform.rotation = Quaternion.identity;
             }
         }
     }

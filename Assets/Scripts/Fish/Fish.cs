@@ -41,16 +41,17 @@ namespace Fishing2D
             if (IsGetCaught) return;
 
             var dist = Vector3.Distance(transform.position, _currentTarget);
+            var dir = _currentTarget - transform.position;
+            var lScale = transform.localScale;
+            if (dir.normalized.x >= 0) transform.localScale = new Vector3(Mathf.Abs(lScale.x), Mathf.Abs(lScale.y), lScale.z);
+            else transform.localScale = new Vector3(Mathf.Abs(lScale.x), -Mathf.Abs(lScale.y), lScale.z);
+
+            transform.right = dir.normalized;
+            transform.localEulerAngles = new Vector3(0f, 0f, transform.localEulerAngles.z);
+
             if (dist > _minDistanceToTarget)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _currentTarget, Time.deltaTime * _fishSettings.MovementSpeed);
-                var dir = _currentTarget - transform.position;
-                var lScale = transform.localScale;
-                
-                if (dir.normalized.x >= 0) transform.localScale = new Vector3(Mathf.Abs(lScale.x), Mathf.Abs(lScale.y), 1f);
-                else transform.localScale = new Vector3(Mathf.Abs(lScale.x), -Mathf.Abs(lScale.y), 1f);
-
-                transform.right = dir.normalized;
+                transform.position = Vector3.MoveTowards(transform.position, _currentTarget, Time.deltaTime * _fishSettings.MovementSpeed);                                               
             }
             else
             {

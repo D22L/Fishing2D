@@ -62,7 +62,7 @@ namespace Fishing2D
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (CurrentTarget != null) return;
+            if (CurrentTarget != null || _sm.CurrentState ==null) return;
 
             if (other.TryGetComponent(out ICanGetCaught caught))
             {                

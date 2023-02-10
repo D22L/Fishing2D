@@ -15,6 +15,7 @@ namespace Fishing2D
         public override void Enter()
         {
              target.ProgressBarImage.DOFillAmount(1f, _fillDuration)
+                .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
                     target.CurrentTarget.GetCaught();
