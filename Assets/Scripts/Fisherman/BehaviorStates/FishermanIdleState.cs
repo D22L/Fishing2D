@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Fishing2D
 {
@@ -8,9 +7,8 @@ namespace Fishing2D
     {
         public FishermanIdleState(Fisherman targetValue, StateMachine sm) : base(targetValue, sm)
         {
-
         }
-
+        
         public override void Update()
         {
             if (Input.GetMouseButtonDown(0))

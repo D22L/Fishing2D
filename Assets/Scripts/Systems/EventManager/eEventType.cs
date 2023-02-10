@@ -5,6 +5,7 @@ namespace Fishing2D
         LevelStart,
         LevelWin,
         LevelFail,
-        HookInWater
+        HookInWater,
+        ObjectInHook
     }
 }

@@ -2,21 +2,25 @@ using UnityEngine;
 using Zenject;
 namespace Fishing2D
 {
-    public class Fish : MonoBehaviour, ICaught
+    public class Fish : MonoBehaviour, ICanGetCaught
     {
         [Inject] private LakeBorder _border;
         [SerializeField] private float _movementSpeed;
         private Vector3 _currentTarget;
         private readonly float _minDistanceToTarget = 0.1f;
+
+        public Transform ObjTransform => transform;
+        public bool IsGetCaught { get; private set; }
         private void Awake()
         {
             _currentTarget = GetNewWayTarget();
         }
 
-        public void Caught()
+        public void GetCaught()
         {
-
-        }
+            this.OnEvent(eEventType.ObjectInHook,this);
+            IsGetCaught = true;
+        }   
 
         private Vector3 GetNewWayTarget()
         {
@@ -27,6 +31,8 @@ namespace Fishing2D
 
         private void Update()
         {
+            if (IsGetCaught) return;
+
             var dist = Vector3.Distance(transform.position, _currentTarget);
             if (dist > _minDistanceToTarget)
             {
@@ -44,5 +50,7 @@ namespace Fishing2D
                 _currentTarget = GetNewWayTarget();
             }
         }
+
+       
     }
 }
