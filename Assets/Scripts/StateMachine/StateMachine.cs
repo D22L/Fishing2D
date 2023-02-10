@@ -12,7 +12,13 @@ namespace Fishing2D
         {
             CurrentState?.Exit();
             CurrentState = state;
-            CurrentState.Enter();
+            CurrentState?.Enter();
+        }
+
+        public void Stop()
+        {
+            CurrentState?.Exit();
+            CurrentState = null;
         }
     }
 }

@@ -11,15 +11,7 @@ namespace Fishing2D
         {
             EventManager.Subscribe(eventType, callback);
         }
-        public static void Subscribe(this Component component, eEventType eventType, UnityAction callback)
-        {
-            EventManager.Subscribe(eventType, callback);
-        }
         public static void Unsubscribe(this Component component, eEventType eventType, UnityAction<object> callback)
-        {
-            EventManager.Unsubscribe(eventType, callback);
-        }
-        public static void Unsubscribe(this Component component, eEventType eventType, UnityAction callback)
         {
             EventManager.Unsubscribe(eventType, callback);
         }

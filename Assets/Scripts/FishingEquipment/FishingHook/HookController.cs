@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,7 +10,7 @@ namespace Fishing2D
         [field:SerializeField] public float MoveSpeed { get; private set; }
         [field: SerializeField] public Image ProgressBarImage { get; private set; }
         [field: SerializeField] public Transform CaughtPoint { get; private set; }
-        
+        [field: SerializeField] public GameObject Bubble { get; private set; }
         [Inject] public LakeBorder LakeBorder { get; private set; }
         private StateMachine _sm;
         public Vector3 ThorwPointPos { get; private set; }
@@ -33,6 +34,17 @@ namespace Fishing2D
             Hook—ommit = new Hook—ommitState(this,_sm);
             OnHook = new OnHookState(this,_sm);
             _sm.SetState(HookIdle);
+        }
+
+        public void Stop()
+        {
+            _sm.Stop();
+        }
+
+        public void Clear()
+        {
+            CurrentTarget.ObjTransform.gameObject.SetActive(false);
+            CurrentTarget = null;
         }
 
         public void Throw(Vector3 pos, float animDuration)

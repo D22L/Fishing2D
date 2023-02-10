@@ -19,8 +19,11 @@ namespace Fishing2D
                 {
                     target.CurrentTarget.GetCaught();
                     target.CurrentTarget.ObjTransform.parent = target.CaughtPoint;
-                    target.CurrentTarget.ObjTransform.DOLocalMove(Vector3.zero,1f);
-                    target.CurrentTarget.ObjTransform.DOLocalRotate(Vector3.zero,1f);
+                    target.CurrentTarget.ObjTransform.DOLocalMove(Vector3.zero,0.5f);
+                    target.CurrentTarget.ObjTransform.DOLocalRotate(Vector3.zero,0.1f);
+                    target.CurrentTarget.ObjTransform.DOScale(Vector3.one,0.1f);
+                    
+                    machine.SetState(target.OnHook);
                 });           
         }
 
@@ -38,12 +41,8 @@ namespace Fishing2D
             {
                 target.CurrentTarget = null;
                 machine.SetState(target.HookFishing);
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                machine.SetState(target.OnHook);
-            }
+                EventManager.OnEvent(eEventType.TargetRunAway);
+            }          
         }
     }
 }

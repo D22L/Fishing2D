@@ -6,6 +6,9 @@ namespace Fishing2D
         LevelWin,
         LevelFail,
         HookInWater,
-        ObjectInHook
+        ObjectInHook,
+        TargetOutOfWater,
+        CollectFish,
+        TargetRunAway
     }
 }
