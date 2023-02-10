@@ -3062,13 +3062,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7255445963065467714, guid: d37748d6ad4fa594790d06c4aec9b303, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7255445963065467717, guid: d37748d6ad4fa594790d06c4aec9b303, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7255445964252253874, guid: d37748d6ad4fa594790d06c4aec9b303, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7255445964444868860, guid: d37748d6ad4fa594790d06c4aec9b303, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7255445964617588906, guid: d37748d6ad4fa594790d06c4aec9b303, type: 3}
       propertyPath: m_AnchoredPosition.y
